@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:bidirectional_listview/bidirectional_listview.dart';
 import 'package:do_project/state/week_state.dart';
+import 'package:states_rebuilder/scr/state_management/extensions/reactive_model_x.dart';
 
 class Week extends StatelessWidget {
   const Week({super.key});

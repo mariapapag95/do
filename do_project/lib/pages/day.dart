@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:do_project/state/day_state.dart';
 import 'package:intl/intl.dart';
 import 'package:do_project/task_model.dart';
+import 'package:states_rebuilder/scr/state_management/extensions/reactive_model_x.dart';
 
 class Day extends StatelessWidget {
   const Day({super.key});

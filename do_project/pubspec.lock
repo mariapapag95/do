@@ -108,10 +108,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
+      sha256: b1ac0fe2832c9cc95e5e88b57d627c5e68c223b9657f4b96e1487aa9098c7b82
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.5"
+    version: "6.2.1"
   http:
     dependency: transitive
     description:
@@ -192,6 +192,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  navigation_builder:
+    dependency: transitive
+    description:
+      name: navigation_builder
+      sha256: d1b145dde5869849613d9b93ecd8f5a3ae929471ef81d1ba017f476b70bd7c39
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   path:
     dependency: "direct main"
     description:
@@ -313,10 +321,10 @@ packages:
     dependency: "direct main"
     description:
       name: states_rebuilder
-      sha256: b51afb586ac65aab852493462f3bc0dd85aa0515a9e209743a0460839d5135c7
+      sha256: f760498bb7adbe12d0d6da67f23c07e6c41de6261052ba8794356222fe27ddf3
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.0"
+    version: "6.4.0"
   stream_channel:
     dependency: transitive
     description:
@@ -415,4 +423,4 @@ packages:
     version: "1.0.4"
 sdks:
   dart: ">=3.3.1 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.19.2"
