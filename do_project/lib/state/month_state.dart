@@ -1,6 +1,6 @@
 import 'package:do_project/state/view_state.dart';
-import 'package:do_project/task_model.dart';
-import 'package:do_project/widgets/calendar_card.dart';
+import 'package:do_project/data/task_model.dart';
+import 'package:do_project/views/widgets/calendar_card.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 var month = RM.inject(() => MonthState());

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:do_project/state/view_state.dart';
-import 'package:do_project/task_model.dart';
-import 'package:do_project/widgets/spacers.dart';
+import 'package:do_project/data/task_model.dart';
+import 'package:do_project/views/widgets/spacers.dart';
 
 class RandomTask extends StatelessWidget {
   const RandomTask({super.key, required this.task});

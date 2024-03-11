@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:do_project/state/month_state.dart';
 import 'package:intl/intl.dart';
-import 'package:do_project/widgets/calendar_card.dart';
-import 'package:do_project/widgets/spacers.dart';
+import 'package:do_project/views/widgets/calendar_card.dart';
+import 'package:do_project/views/widgets/spacers.dart';
 import 'package:states_rebuilder/scr/state_management/extensions/reactive_model_x.dart';
 
 class Month extends StatelessWidget {
@@ -20,11 +20,10 @@ class Month extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(4.0),
                     child: Icon(
                       Icons.arrow_back_ios_outlined,
-                      color: Theme.of(context).focusColor,
                       size: 16,
                     ),
                   ),
@@ -34,11 +33,10 @@ class Month extends StatelessWidget {
                   DateFormat('MMMM y').format(monthState.displayDate).toUpperCase(),
                 ),
                 InkWell(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(4.0),
                     child: Icon(
                       Icons.arrow_forward_ios_outlined,
-                      color: Theme.of(context).focusColor,
                       size: 16,
                     ),
                   ),

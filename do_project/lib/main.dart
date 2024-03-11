@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:do_project/pages/all.dart';
+import 'package:do_project/views/pages/all.dart';
 import 'package:do_project/state/view_state.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  viewState.getTasks();
+  viewState.loadTasks();
   runApp(const MyApp());
 }
 

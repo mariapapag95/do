@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:do_project/state/day_state.dart';
 import 'package:intl/intl.dart';
-import 'package:do_project/task_model.dart';
+import 'package:do_project/data/task_model.dart';
 import 'package:states_rebuilder/scr/state_management/extensions/reactive_model_x.dart';
 
 class Day extends StatelessWidget {
@@ -17,9 +17,8 @@ class Day extends StatelessWidget {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Theme.of(context).splashColor,
               ),
               height: 100,
               width: 100,

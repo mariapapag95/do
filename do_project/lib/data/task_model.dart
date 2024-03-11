@@ -21,18 +21,17 @@ class Task {
         id: json['id'],
         label: json['label'],
         details: json['details'],
-        date: json['date'],
-        time: json['time'],
-        createdOn: json['createdOn'],
+        date: json['date'] != null ? DateTime.parse(json['date']) : null,
+        time: json['time'] != null ? DateTime.parse(json['time']) : null,
+        createdOn: DateTime.parse(json['createdOn']),
       );
 
   Map<String, dynamic> toMap() => {
-        'id': id,
         'label': label,
         'details': details,
-        'date': date,
-        'time': time,
-        'createdOn': createdOn,
+        'date': date?.toIso8601String(),
+        'time': time?.toIso8601String(),
+        'createdOn': createdOn.toIso8601String(),
       };
 
   Task taskFromJson(String str) {

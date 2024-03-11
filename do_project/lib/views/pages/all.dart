@@ -16,7 +16,7 @@ class All extends StatelessWidget {
                 Expanded(
                   child: GestureDetector(
                     onTap: () => viewState.openView(section),
-                    onDoubleTap: () => viewState.closeView(section),
+                    onDoubleTap: () => viewState.closeView(),
                     onVerticalDragUpdate: (details) {
                       int sensitivity = 8;
                       if (details.delta.dy > sensitivity) {

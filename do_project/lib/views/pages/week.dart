@@ -13,10 +13,9 @@ class Week extends StatelessWidget {
       () => BidirectionalListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const AlwaysScrollableScrollPhysics(),
-        separatorBuilder: (BuildContext context, int index) => Container(
+        separatorBuilder: (BuildContext context, int index) => const SizedBox(
           height: double.infinity,
           width: 2,
-          color: Theme.of(context).primaryColor,
         ),
         negativeItemCount: weekState.today.day,
         itemBuilder: (BuildContext context, int index) {
