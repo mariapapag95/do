@@ -25,6 +25,9 @@ class CalendarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isToday = day.day == monthState.today.day &&
+        monthState.displayDate.month == monthState.today.month;
+
     return Padding(
       padding: const EdgeInsets.only(
         bottom: Spacers.xsmallSize,
@@ -36,12 +39,14 @@ class CalendarCard extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: day.isInCurrentMonth
-              ? Theme.of(context).secondaryHeaderColor
-              : Theme.of(context).cardColor,
+              ? Theme.of(context).colorScheme.primary.withOpacity(0.45)
+              : Theme.of(context).colorScheme.primary.withOpacity(0.8),
           borderRadius: BorderRadius.circular(Spacers.smallSize),
-          border: day.day == monthState.today.day &&
-                  monthState.displayDate.month == monthState.today.month
-              ? Border.all()
+          border: isToday
+              ? Border.all(
+                  color: Theme.of(context).colorScheme.secondary,
+                  width: 2.5,
+                )
               : null,
         ),
         child: Column(
@@ -51,10 +56,13 @@ class CalendarCard extends StatelessWidget {
             Text(
               day.day.toString(),
               style: TextStyle(
-                color: day.isInCurrentMonth
-                    ? Theme.of(context).canvasColor
-                    : Theme.of(context).splashColor,
-              ),
+                  color: day.isInCurrentMonth
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : Theme.of(context)
+                          .colorScheme
+                          .onTertiary
+                          .withOpacity(0.5),
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),

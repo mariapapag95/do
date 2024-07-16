@@ -13,7 +13,8 @@ class Week extends StatelessWidget {
       () => BidirectionalListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const AlwaysScrollableScrollPhysics(),
-        separatorBuilder: (BuildContext context, int index) => const SizedBox(
+        separatorBuilder: (BuildContext context, int index) => Container(
+          color: Theme.of(context).colorScheme.primary,
           height: double.infinity,
           width: 2,
         ),
@@ -24,20 +25,24 @@ class Week extends StatelessWidget {
               weekState.today.day + index);
           return SizedBox(
             width: (MediaQuery.of(context).size.width) /
-                (weekState.weekdayExpanded ? 1 : 7),
+                (weekState.isWeekdayExpanded ? 1 : 7),
             child: Column(
               children: [
                 Text(
                   DateFormat('E').format(day).toUpperCase(),
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   DateFormat('d').format(day),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: isToday
-                        ? Theme.of(context).highlightColor
-                        : Theme.of(context).primaryColorDark,
+                        ? Theme.of(context).colorScheme.secondary
+                        : Theme.of(context).hintColor,
                     fontWeight: isToday ? FontWeight.w900 : FontWeight.normal,
                   ),
                 ),

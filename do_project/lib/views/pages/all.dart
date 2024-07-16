@@ -15,7 +15,7 @@ class All extends StatelessWidget {
               for (Widget section in viewState.sections)
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => viewState.openView(section),
+                    onLongPress: () => viewState.openView(section),
                     onDoubleTap: () => viewState.closeView(),
                     onVerticalDragUpdate: (details) {
                       int sensitivity = 8;

@@ -5,7 +5,7 @@ import 'package:do_project/state/view_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  viewState.loadTasks();
+  await viewState.loadTasks();
   runApp(const MyApp());
 }
 

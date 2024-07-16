@@ -12,7 +12,7 @@ class WeekState {
   DateTime get monthEnd => DateTime(today.year, today.month + 1, 0);
   int firstDayOfMonth = 0;
 
-  List<Task> get toDo => viewState.tasks
+  List<Task> get toDo => viewState.allTasks
       .where((Task task) =>
           (task.date ?? DateTime.now()).isAtSameMomentAs(thisWeek.first) ||
           (task.date ?? DateTime.now()).isAtSameMomentAs(thisWeek.last) ||
@@ -20,7 +20,11 @@ class WeekState {
               (task.date ?? DateTime.now()).isBefore(thisWeek.last))
       .toList();
 
-  bool weekdayExpanded = false;
+  bool isWeekdayExpanded = false;
+
+  // void expandToday () {
+  //   thisWeek.length == 1 ?
+  // }
 
   List<DateTime> get thisWeek {
     List<DateTime> days = List.generate(

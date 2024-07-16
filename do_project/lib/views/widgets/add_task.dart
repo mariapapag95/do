@@ -70,7 +70,7 @@ class AddTask extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: Theme.of(context).cardColor),
+          borderSide: const BorderSide(),
         ),
       ),
     );
@@ -100,47 +100,38 @@ class AddTask extends StatelessWidget {
               context: context,
             ),
             Spacers.large,
-            Theme(
-              data: ThemeData(
-                iconButtonTheme: IconButtonThemeData(
-                  style: ButtonStyle(
-                    iconSize: MaterialStateProperty.all(30.0),
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.calendar_month),
+                  onPressed: () => _selectDate(context),
                 ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.calendar_month),
-                    onPressed: () => _selectDate(context),
-                  ),
-                  Spacers.xlarge,
-                  IconButton(
-                    icon: const Icon(Icons.access_time_filled_outlined),
-                    onPressed: () => _selectTime(context),
-                  ),
-                  Spacers.xlarge,
-                  IconButton(
-                    icon: const Icon(Icons.add_circle),
-                    onPressed: () {
-                      if (viewState.labelTextFieldController.text.isNotEmpty) {
-                        viewState.addTask(
-                          Task(
-                            id: 0, // This value will automatically be populated by SQL
-                            label: viewState.labelTextFieldController.text,
-                            details: viewState.detailsTextFieldController.text,
-                            date: null,
-                            time: DateTime.now(),
-                            createdOn: DateTime.now(),
-                          ),
-                        );
-                      }
-                      Navigator.pop(context);
-                    },
-                  ),
-                ],
-              ),
+                Spacers.xlarge,
+                IconButton(
+                  icon: const Icon(Icons.access_time_filled_outlined),
+                  onPressed: () => _selectTime(context),
+                ),
+                Spacers.xlarge,
+                IconButton(
+                  icon: const Icon(Icons.add_circle),
+                  onPressed: () {
+                    if (viewState.labelTextFieldController.text.isNotEmpty) {
+                      viewState.addTask(
+                        Task(
+                          id: 0, // This value will automatically be populated by SQL
+                          label: viewState.labelTextFieldController.text,
+                          details: viewState.detailsTextFieldController.text,
+                          date: null,
+                          time: DateTime.now(),
+                          createdOn: DateTime.now(),
+                        ),
+                      );
+                    }
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ],
         ),

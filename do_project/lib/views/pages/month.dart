@@ -13,31 +13,39 @@ class Month extends StatelessWidget {
     return month.rebuild(
       () => Column(
         children: [
-          Padding(
+          Container(
             padding: const EdgeInsets.only(top: 8),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  child: const Padding(
-                    padding: EdgeInsets.all(4.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
                     child: Icon(
                       Icons.arrow_back_ios_outlined,
                       size: 16,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   onTap: () => monthState.previousMonth(),
                 ),
                 Text(
-                  DateFormat('MMMM y').format(monthState.displayDate).toUpperCase(),
+                  DateFormat('MMMM y')
+                      .format(monthState.displayDate)
+                      .toUpperCase(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
                 InkWell(
-                  child: const Padding(
-                    padding: EdgeInsets.all(4.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
                     child: Icon(
                       Icons.arrow_forward_ios_outlined,
                       size: 16,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   onTap: () => monthState.nextMonth(),
@@ -59,9 +67,9 @@ class Month extends StatelessWidget {
                 }
               },
               child: GridView.count(
-                padding:  const  EdgeInsets.all(Spacers.smallSize),
+                padding: const EdgeInsets.all(Spacers.smallSize),
                 childAspectRatio: 1.25,
-                physics:  const NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 7,
                 children: [
                   for (CalendarCardItem day in monthState.allCalendarDays)

@@ -21,6 +21,7 @@ class ViewState {
     const Month(),
   ];
 
+  List<Task> allTasks = [];
   List<Task> tasks = [];
   late Task randomTask;
   late Database _database;
@@ -50,11 +51,19 @@ class ViewState {
 
       final List<Map<String, Object?>> maps = await _database.query('Tasks');
 
-      tasks = List.generate(maps.length, (i) {
-        return Task.fromMap(maps[i]);
-      });
+      allTasks = List.generate(maps.length, (i) => Task.fromMap(maps[i]));
 
-      debugPrint(tasks.toString());
+      var now = DateTime.now();
+      var lastMidnight = DateTime(now.year, now.month, now.day);
+
+      tasks = allTasks
+          .where((Task task) =>
+              task.date == null ||
+              (task.date ?? DateTime(1995)).isBefore(lastMidnight))
+          .toList();
+
+      debugPrint('allTasks: ${allTasks.toString()}');
+      debugPrint('tasks: ${tasks.toString()}');
       view.notify();
     } catch (e) {
       // Handle the error as needed
@@ -64,7 +73,7 @@ class ViewState {
   }
 
   void getRandomTask() {
-    randomTask = tasks
+    randomTask = allTasks
         .where((Task task) => task.date == null && task.time == null)
         .toList()
         .elementAt(
@@ -81,7 +90,7 @@ class ViewState {
       task.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
-    tasks.add(task);
+    allTasks.add(task);
     view.notify();
   }
 

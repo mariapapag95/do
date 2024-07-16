@@ -8,10 +8,7 @@ var dayState = day.state;
 class DayState {
   DateTime today = DateTime.now();
 
-  List<Task> toDo = viewState.tasks
-      .where(
-        (Task task) =>
-            task.date == null || task.date?.day == DateTime.now().day,
-      )
+  List<Task> toDo = viewState.allTasks
+      .where((Task task) => task.date?.day == DateTime.now().day)
       .toList();
 }

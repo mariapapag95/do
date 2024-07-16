@@ -31,7 +31,7 @@ class MonthState {
               return CalendarCardItem(
                 day: previousMonthLastDay - monthStartWeekday + index,
                 isInCurrentMonth: false,
-                tasks: viewState.tasks
+                tasks: viewState.allTasks
                     .where(
                       (Task task) =>
                           // DateTime(
@@ -48,7 +48,7 @@ class MonthState {
             return CalendarCardItem(
               day: -monthStartWeekday + index + 1,
               isInCurrentMonth: true,
-              tasks: viewState.tasks
+              tasks: viewState.allTasks
                   .where(
                     (Task task) =>
                         // DateTime(
@@ -65,7 +65,7 @@ class MonthState {
             return CalendarCardItem(
               day: -monthStartWeekday - monthEndDay + index + 1,
               isInCurrentMonth: false,
-              tasks: viewState.tasks
+              tasks: viewState.allTasks
                   .where(
                     (Task task) =>
                         // DateTime(
